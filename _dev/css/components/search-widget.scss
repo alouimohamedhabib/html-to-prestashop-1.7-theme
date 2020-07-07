@@ -1,0 +1,84 @@
+.search-widget {
+  display: inline-block;
+  @include search-box;
+}
+
+.header-top {
+  .search-widget {
+    form {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+
+      input[type="text"] {
+        min-width: inherit;
+        width: 100%;
+        color: #7a7a7a;
+        border: 1px solid rgba(0, 0, 0, 0.25);
+        position: absolute;
+        padding: 10px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        height: 40px;
+      }
+
+      button.toggle-seach-input {
+        position: relative;
+        bottom: inherit;
+        top: inherit;
+
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+#checkout {
+  #search_widget {
+    display: none; /* Not ideal solution by allows to reuse same hooks/templates */
+  }
+}
+
+#pagenotfound {
+  .page-content {
+    #search_widget {
+      width: 100%;
+    }
+  }
+}
+
+.page-not-found {
+  .search-widget {
+    form {
+      display: inline-block;
+    }
+  }
+}
+
+/*** Responsive part ***/
+@include media-breakpoint-down(sm) {
+  .header-top {
+    .search-widget {
+      float: none;
+
+      form {
+        margin: 0 auto;
+
+        input[type="text"] {
+          min-width: inherit;
+          background: white;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .search-widget {
+    min-width: 15.63rem;
+  }
+}
