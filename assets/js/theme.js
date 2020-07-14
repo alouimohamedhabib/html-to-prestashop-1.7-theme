@@ -1393,6 +1393,13 @@ var CheckUpdateQuantityOperations = {
     isUpdateOperation = true;
   }
 };
+window.handleCloseCartModal = function () {
+  var cartModal = document.getElementById("modalCartDetails");
+  var _desktop_cart = document.getElementById("_desktop_cart");
+  cartModal.classList.toggle('modal-hidden');
+  _desktop_cart.classList.toggle('modal-is-visible');
+  // alert("Modal is hidden now ")
+};
 
 /***/ }),
 /* 10 */

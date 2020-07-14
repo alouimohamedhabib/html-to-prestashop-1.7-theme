@@ -8,7 +8,7 @@
   padding: 1rem 0;
 }
 .card-block {
-  padding: 1.25rem 1.25rem .5rem;
+  padding: 1.25rem 1.25rem 0.5rem;
   &.checkout {
     padding-bottom: 1.75rem;
     padding-top: 0;
@@ -18,14 +18,14 @@
   &.cart-summary-totals {
     padding: 0 1rem 1rem;
     .cart-summary-line {
-      padding: .5rem .2rem 0;
+      padding: 0.5rem 0.2rem 0;
 
       &:last-child {
-        margin-bottom: 0
+        margin-bottom: 0;
       }
       &.cart-total {
         background-color: $gray-light;
-        padding: .5rem;
+        padding: 0.5rem;
         .label,
         .value {
           font-weight: bold;
@@ -40,7 +40,7 @@
       span {
         &.sub {
           text-align: left;
-          font-size: .88rem;
+          font-size: 0.88rem;
           float: none;
         }
       }
@@ -51,7 +51,7 @@
 .cart-summary-line {
   @include clearfix;
   clear: both;
-  margin-bottom: .315rem;
+  margin-bottom: 0.315rem;
   .label {
     padding-left: 0;
     font-weight: normal;
@@ -92,8 +92,8 @@
   .promo-discounts {
     margin-bottom: 0;
     text-align: center;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 
     .cart-summary-line {
       .label {
@@ -140,7 +140,7 @@
         width: 0;
         position: absolute;
         pointer-events: none;
-        border-bottom-color:  $brand-danger;
+        border-bottom-color: $brand-danger;
         border-width: 10px;
         margin-left: -10px;
       }
@@ -155,7 +155,7 @@
     height: 2.5rem;
     text-indent: 0.625rem;
     width: 50%;
-    margin-right: -.24rem;
+    margin-right: -0.24rem;
     + button {
       margin-top: -4px;
       margin-left: -1px;
@@ -186,7 +186,7 @@
     }
     .material-icons {
       font-size: 1.2rem;
-      margin-left: .4rem;
+      margin-left: 0.4rem;
     }
   }
   .promo-code-button {
@@ -262,8 +262,9 @@
 /// Cart preview & label
 .cart-preview {
   .header {
-    a {}
-    span.cart-label{
+    a {
+    }
+    span.cart-label {
       display: none;
     }
   }
@@ -310,23 +311,71 @@
   }
 }
 
-
-
 #_desktop_cart {
+  &.modal-is-visible {
+    &:before {
+      background: rgba(0, 0, 0, 0.34);
+      content: "";
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      width: 100vw;
+      z-index: 1;
+      transition: all 300ms;
+    }
+  }
   .header {
     position: relative;
-    span.cart-products-count {
-      background: $brand-danger;
-      color: #fff;
-      font-size: 0.7rem;
-      height: 20px;
-      width: 20px;
-      display: inline-block;
-      text-align: center;
-      border-radius: 100%;
-      position: absolute;
-      right: -10px;
-      bottom: -6px;
+    span {
+      &.cart-label {
+      cursor: pointer;  
+      }
+      &.cart-products-count {
+        background: $brand-danger;
+        color: #fff;
+        font-size: 0.7rem;
+        height: 20px;
+        width: 20px;
+        display: inline-block;
+        text-align: center;
+        border-radius: 100%;
+        position: absolute;
+        right: -10px;
+        bottom: -6px;
+      }
+    }
+  }
+  &:hover {
+    .cart-hover-content {
+      display: block;
+    }
+  }
+  .cart-hover-content {
+    position: fixed;
+    background: #fdfdfd;
+    padding: 1em;
+    border-radius: 0;
+    z-index: 99;
+    width: 450px;
+    right: 0;
+    top: 0;
+    text-align: left;
+    height: 100%;
+    box-shadow: -2px 0 3px 1px #21212126;
+    transition: all 300ms;
+    &.modal-hidden {
+      right: -100%;
+    }
+    &div:not(.modal-hidden):after {
+      background: #6633996b;
+      content: "";
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      width: 100vw;
+      z-index: 1;
     }
   }
 }

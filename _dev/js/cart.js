@@ -353,3 +353,10 @@ const CheckUpdateQuantityOperations = {
     isUpdateOperation = true;
   }
 };
+window.handleCloseCartModal = () => {
+  const cartModal = document.getElementById("modalCartDetails");
+  const _desktop_cart = document.getElementById("_desktop_cart");
+  cartModal.classList.toggle('modal-hidden');
+  _desktop_cart.classList.toggle('modal-is-visible');
+  // alert("Modal is hidden now ")
+}
