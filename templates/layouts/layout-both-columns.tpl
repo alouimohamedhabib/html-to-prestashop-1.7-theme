@@ -54,6 +54,9 @@
 
       <section id="wrapper">
         {hook h="displayWrapperTop"}
+        <div class="container-fluid">
+        {widget name='ps_imageslider'}
+        </div>
         <div class="container">
           {block name='breadcrumb'}
             {include file='_partials/breadcrumb.tpl'}
