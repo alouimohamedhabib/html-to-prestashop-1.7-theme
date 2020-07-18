@@ -1,11 +1,16 @@
+#sliderWrapper {
+  overflow: hidden;
+  max-width: 100%;
+}
+
 .carousel {
-  box-shadow: 1px 1px 7px 0 rgba(0, 0, 0, 0.15);
+  // box-shadow: 1px 1px 7px 0 rgba(0, 0, 0, 0.15);
   margin-bottom: 1.5rem;
   .direction {
     z-index: auto;
   }
   .carousel-inner {
-    height: 340px;
+    // height: 340px;
   }
   .carousel-item {
     height: 100%;
@@ -15,13 +20,20 @@
       height: auto;
     }
     .caption {
+      color: #0b0b0b;
+      background: white;
       position: absolute;
-      bottom: 28px;
-      left: 90px;
-      color: white;
-      max-width: 340px;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      height: 200px;
+      padding: 2em;
+      width: 470px;
+      text-align: center;
       .caption-description p {
-        color: white;
+        color: #ff4c4c;
       }
     }
     figure {
@@ -31,6 +43,7 @@
   }
   .carousel-control {
     opacity: 1;
+  box-shadow: none !important;
     .icon-next,
     .icon-prev {
       &::before {
@@ -38,7 +51,7 @@
       }
       i {
         font-size: 3.125rem;
-        color: white;
+        color: #aaa;
       }
       &:hover {
         i {
@@ -119,11 +132,14 @@
       top: calc(50%);
       width: 100%;
       .carousel-control {
+        box-shadow: none !important;
         .icon-prev {
+          font-size: 30px;
           left: 0;
           margin-left: 0;
         }
         .icon-next {
+          font-size: 30px;
           right: 0;
           margin-right: .78rem;
         }
