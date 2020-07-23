@@ -1,7 +1,10 @@
 $thumbnail-size: 250px;
 $product-description-height: 70px;
 
-#products,.featured-products,.product-accessories,.product-miniature  {
+#products,
+.featured-products,
+.product-accessories,
+.product-miniature {
   .products {
     display: flex;
     flex-wrap: wrap;
@@ -23,31 +26,43 @@ $product-description-height: 70px;
     height: 318px;
     width: $thumbnail-size;
     background: white;
-    @include box-shadow;
-    &:hover, &:focus {
+    //@include box-shadow;
+    &:hover,
+    &:focus {
       .highlighted-informations {
         bottom: 5.5rem;
         &::after {
           opacity: 1;
         }
-        &.no-variants{
+        &.no-variants {
           bottom: 4.2rem;
         }
       }
-      .product-description::after{
+      .product-description::after {
         content: "";
         border-top: $gray 1px solid;
         position: absolute;
         width: 80%;
         top: 0;
         left: 10%;
-        opacity: .25;
+        opacity: 0.25;
       }
     }
     .product-thumbnail {
       position: relative;
       height: calc(100% - #{$product-description-height});
+      &:hover {
+        img {
+          &.main-img {
+            opacity: 0;
+          }
+          &.hover-img {
+            opacity: 1;
+          }
+        }
+      }
       img {
+        transition: all 500ms;
         max-height: 100%;
         max-width: 100%;
         position: absolute;
@@ -56,6 +71,9 @@ $product-description-height: 70px;
         left: 0;
         right: 0;
         margin: auto;
+        &.hover-img {
+          opacity: 0;
+        }
       }
     }
   }
@@ -66,7 +84,7 @@ $product-description-height: 70px;
   .product-title {
     text-align: center;
     text-transform: capitalize;
-    margin-top: .7rem;
+    margin-top: 0.7rem;
   }
   .product-price-and-shipping {
     color: $gray-darker;
@@ -95,7 +113,7 @@ $product-description-height: 70px;
     width: $thumbnail-size;
     height: 3.125rem;
     box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.2);
-    transition: bottom .3s;
+    transition: bottom 0.3s;
     .quick-view {
       color: $gray;
       font-size: $base-font-size;
@@ -115,7 +133,7 @@ $product-description-height: 70px;
   }
 
   .product-miniature {
-    margin: 0 .8125rem;
+    margin: 0 0.8125rem;
     .product-flags {
       li.product-flag {
         min-width: 3.125rem;
@@ -153,10 +171,12 @@ $product-description-height: 70px;
 }
 
 @include media-breakpoint-down(sm) {
-  #products,.featured-products,.product-accessories  {
+  #products,
+  .featured-products,
+  .product-accessories {
     .thumbnail-container {
       @include box-shadow;
-      .product-description{
+      .product-description {
         box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.2);
       }
     }
