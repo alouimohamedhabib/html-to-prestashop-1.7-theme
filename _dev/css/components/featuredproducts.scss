@@ -26,9 +26,13 @@ $product-description-height: 70px;
     height: 318px;
     width: $thumbnail-size;
     background: white;
+    overflow: hidden;
     //@include box-shadow;
     &:hover,
     &:focus {
+      .custom-function {
+        right: 0;
+      }
       .highlighted-informations {
         bottom: 5.5rem;
         &::after {
@@ -46,6 +50,21 @@ $product-description-height: 70px;
         top: 0;
         left: 10%;
         opacity: 0.25;
+      }
+    }
+    // custom action elements
+    .custom-function {
+      position: absolute;
+      z-index: 9;
+      right: -90px ;
+      bottom: 70px;
+      transition: all 400ms;
+      background: #ffffff;
+      padding: 5px;
+      button {
+        border: none;
+        background: transparent;
+        cursor: pointer;
       }
     }
     .product-thumbnail {

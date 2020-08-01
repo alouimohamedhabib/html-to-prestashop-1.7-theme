@@ -25,19 +25,29 @@
     {block name='product_miniature_item'}
         <article class="product-miniature js-product-miniature" data-id-product="{$product.id_product}" data-id-product-attribute="{$product.id_product_attribute}" itemscope itemtype="http://schema.org/Product">
             <div class="thumbnail-container">
-                {block name='product_thumbnail'}
-                    {if $product.cover}
-                        <a href="{$product.url}" class="thumbnail product-thumbnail">
-                            <img  class="main-img" src="{$product.cover.bySize.home_default.url}" alt="{if !empty($product.cover.legend)}{$product.cover.legend}{else}{$product.name|truncate:30:'...'}{/if}" data-full-size-image-url="{$product.cover.large.url}" />
-                            {* This is the hiver img *}
-                            <img class="hover-img" src="{$product.cover.large.url}" />
-                        </a>
-                    {else}
-                        <a href="{$product.url}" class="thumbnail product-thumbnail">
-                            <img src="{$urls.no_picture_image.bySize.home_default.url}" />
-                        </a>
-                    {/if}
-                {/block}
+
+            <div class="custom-function">
+                <form action="{$urls.pages.cart}" method="POST">
+                    <input type="hidden" value="{$product.id}" name="id_product">
+                    <button title="Add to cart" data-button-action="add-to-cart" type="submit">
+                    <span class="material-icons">shopping_basket</span>
+                    </button>
+                </form>
+            </div>
+
+            {block name='product_thumbnail'}
+            {if $product.cover}
+            <a href="{$product.url}" class="thumbnail product-thumbnail">
+                <img class="main-img" src="{$product.cover.bySize.home_default.url}" alt="{if !empty($product.cover.legend)}{$product.cover.legend}{else}{$product.name|truncate:30:'...'}{/if}" data-full-size-image-url="{$product.cover.large.url}" />
+                {* This is the hiver img *}
+                <img class="hover-img" src="{$product.cover.large.url}" />
+            </a>
+            {else}
+            <a href="{$product.url}" class="thumbnail product-thumbnail">
+                <img src="{$urls.no_picture_image.bySize.home_default.url}" />
+            </a>
+            {/if}
+            {/block}
 
             <div class="product-description">
                 {block name='product_name'}
